@@ -1,0 +1,50 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}} App!
+  </h1>
+  <!-- <button (click)="getData()">Fetch Data</button> -->
+ </div>
+ <div *ngIf="flag==0">
+   <table id="users">
+   <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let user of data">
+    <td >{{user.id}}</td>
+    <td>{{user.login}}</td>
+    <td><button (click)="getFollowers(user.login)">{{user.login}}'s followers</button></td>
+
+  </tr>
+
+ </table> 
+
+</div>
+
+<div *ngIf="flag==1">
+ <button (click)="changeFlag()">Go Back</button>
+
+ <div style="text-align:center">
+  <h1>
+    {{user}}'s Followers
+  </h1>
+ </div>
+
+ <table id="users">
+  <tr>
+   <th *ngFor="let col of fcolumns">
+     {{col}}
+   </th>
+ </tr>
+ <tr *ngFor="let user of followers_data">
+   <td >{{user.id}}</td>
+   <td>{{user.login}}</td>
+   <td>{{user.html_url}}'s followers</td>
+
+ </tr>
+
+</table>
+</div>
+
+ 
